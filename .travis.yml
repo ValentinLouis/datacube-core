@@ -6,6 +6,10 @@ git:
   # we can reach the last tagged version.
   depth: 99999
 
+os:
+  - linux
+  - osx
+
 language: python
 python:
   - "2.7"
