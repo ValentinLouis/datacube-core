@@ -23,6 +23,8 @@ matrix:
         - export GDAL_DRIVER_PATH=/usr/local/lib/gdalplugins
         - brew update
         - brew install python3 numpy gdal2-python
+        - alias pip=pip3
+        - alias python=python3
         - virtualenv env -p python3
         - source env/bin/activate
 
