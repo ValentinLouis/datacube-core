@@ -12,7 +12,13 @@ matrix:
   include:
     - language: generic
       os: osx
+      python: "3.6"
       before_install:
+        - brew tap osgeo/osgeo4mac
+        - brew install osgeo/osgeo4mac/gdal2
+        - export LDFLAGS=-L/usr/local/opt/gdal2/lib
+        - export CPPFLAGS=-I/usr/local/opt/gdal2/include
+        - export PKG_CONFIG_PATH=/usr/local/opt/gdal2/lib/pkgconfig
         - brew update
         - brew install python3
         - virtualenv env -p python3
@@ -55,14 +61,6 @@ before_install:
 # Set paths for building python-gdal
   - export CPLUS_INCLUDE_PATH=/usr/include/gdal
   - export C_INCLUDE_PATH=/usr/include/gdal
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew tap osgeo/osgeo4mac;
-      brew update;
-      brew install osgeo/osgeo4mac/gdal2;
-      export LDFLAGS=-L/usr/local/opt/gdal2/lib;
-      export CPPFLAGS=-I/usr/local/opt/gdal2/include;
-      export PKG_CONFIG_PATH=/usr/local/opt/gdal2/lib/pkgconfig;
-    fi
 
 
 install:
