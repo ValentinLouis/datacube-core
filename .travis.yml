@@ -59,6 +59,9 @@ before_install:
       brew tap osgeo/osgeo4mac;
       brew update;
       brew install osgeo/osgeo4mac/gdal2;
+      export LDFLAGS=-L/usr/local/opt/gdal2/lib;
+      export CPPFLAGS=-I/usr/local/opt/gdal2/include;
+      export PKG_CONFIG_PATH=/usr/local/opt/gdal2/lib/pkgconfig;
     fi
 
 
