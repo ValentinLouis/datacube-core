@@ -6,9 +6,17 @@ git:
   # we can reach the last tagged version.
   depth: 99999
 
-os:
-  - linux
-  - osx
+
+
+matrix:
+  include:
+    - language: generic
+      os: osx
+      before_install:
+        - brew update
+        - brew install python3
+        - virtualenv env -p python3
+        - source env/bin/activate
 
 language: python
 python:
