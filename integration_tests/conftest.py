@@ -513,6 +513,13 @@ def shrink_storage_type(storage_type, variables, shrink_factors):
 
 @pytest.fixture
 def clirunner(global_integration_cli_args, datacube_env_name):
+    """
+    Returns a function for running a Data Cube CLI application inside tests
+
+    This will include default arguments specifying the configuration file/s to use,
+    as well as which `environment` to use, as defined by the `datacube_env_name`
+    pytest fixture.
+    """
     def _run_cli(opts, catch_exceptions=False,
                  expect_success=True, cli_method=datacube.scripts.cli_app.cli,
                  verbose_flag='-v'):
