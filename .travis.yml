@@ -56,8 +56,9 @@ before_install:
   - export CPLUS_INCLUDE_PATH=/usr/include/gdal
   - export C_INCLUDE_PATH=/usr/include/gdal
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew tap osgeo/osgeo4mac
-      brew install osgeo/osgeo4mac/gdal2
+      brew tap osgeo/osgeo4mac;
+      brew update;
+      brew install osgeo/osgeo4mac/gdal2;
     fi
 
 
