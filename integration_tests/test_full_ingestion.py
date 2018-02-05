@@ -85,7 +85,6 @@ def test_full_ingestion(clirunner, index, tmpdir, example_ls5_dataset_paths, ing
     check_open_with_xarray(ds_path)
 
 
-@pytest.mark.timeout(20)
 @pytest.mark.parametrize('datacube_env_name', ('s3block_env',), indirect=True)
 @pytest.mark.usefixtures('default_metadata_type',
                          'indexed_ls5_scene_products')
